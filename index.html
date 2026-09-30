@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirigiendo a Bolt...</title>
+    <script>
+        // Obtener el código de la URL o usar uno por defecto
+        const urlParams = new URLSearchParams(window.location.search);
+        const promoCode = urlParams.get('code') || 'TU_CODIGO_AQUI'; // Cambia TU_CODIGO_AQUI por tu código real
+
+        // Intentar abrir Bolt automáticamente
+        window.location.href = `bolt://action/promoCode?code=${promoCode}`;
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; padding: 40px 20px; background-color: #f9f9f9;">
+    <h2 style="color: #333;">Abriendo la app de Bolt...</h2>
+    <p style="color: #666;">Si la aplicación no se abre automáticamente, presiona el siguiente botón:</p>
+    
+    <a id="btn-bolt" href="#" 
+       style="background-color: #34D186; color: white; padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-block; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+       Abrir Bolt y aplicar código
+    </a>
+
+    <script>
+        // Asignar el enlace dinámico al botón
+        document.getElementById('btn-bolt').href = `bolt://action/promoCode?code=${promoCode}`;
+    </script>
+</body>
+</html>
